@@ -6,3 +6,6 @@ Preddiplomski i diplomski studij - smjer Računarska znanost (FER2 program)
 
 - [**Digitalna logika**](https://github.com/filipkujundzic/FER/tree/main/DIGLOG)
 - [**Programiranje i programsko inženjerstvo**](https://github.com/filipkujundzic/FER/tree/main/PIPI)
+
+# 2. semestar
+
