@@ -1,0 +1,50 @@
+		ORG 0				; kreni od adrese 0
+		
+GLAVNI	MOVE %D 12, R1		; u R1 pohrani dekadski broj 12
+		MOVE BLOK, R2		; u R2 stavi byte sa bloka
+		MOVE 10000,R7		; inicijalizacija stack pointera
+		MOVE R1,R5			; u R5 stavi sadrzaj registra R1
+		
+PETLJA	LOADB R3,(R2)		; u R3 ucitaj sadrzaj sa adrese R2
+		PUSH R3				; stavi R3 na stog
+		CALL PAR			; zovi potprogram PAR
+		POP R3				; skini R3 sa stoga
+		STOREB R0,(R2)		; pohrani byte iz R0 na adresu koja je u R2 
+		SHR R0,7,R0			; shift u desno za sedam - da vidimo je li 8. bit promijenjen
+		SUB R5,R0,R5		; od 12 oduzima taj podatak 0-nije promijenjen, 1-promijenjen je	
+		ADD R2,1,R2			; makni na iduci broj
+		SUB R1,1,R1			;broj izvodjenja petlje
+		JR_NZ PETLJA
+		
+		MOVE R5, R6			; u R6 stavi sadrzaj od R5 (broj promjenjenih podataka)
+			
+		HALT				; zaustavi procesor
+	
+BLOK	DB 0,1,0FF,2,3,0F3,0F8,0E,0B,36,7E,9F		; definiraj byte (8 bitova)
+
+MASKA	DW FFFFFFFE			; maska za postavljanje 8. bita u 0
+
+PAR		LOADB R0,(R7+4)		; pomicemo SP na podatak R3 na stogu
+		PUSH R1				
+		PUSH R2
+		MOVE 7,R1			; u R1 stavi 7
+		MOVE 0,R2			; u R2 stavi 0 - brojac jedinica u binarnom zapisu
+		
+LOOP	ROTR R0,1,R0		; desni bit u carry
+		ADC R2,0,R2			;brojac jedinica
+		SUB R1,1,R1			
+		JR_NZ LOOP
+
+		AND R2,1,R2			; provjera pariteta
+		JR_Z SET
+
+RESET	LOAD R2,(MASKA)	
+		AND R0,R2,R0
+		JR VRATI
+
+SET		OR R0,1,R0			; postavi 8.bit u 1
+		
+VRATI	ROTL R0,7,R0		; "vracanje" originalnog podatka
+		POP R2				; skini R2 sa stoga 
+		POP R1				; skini R1 sa stoga
+		RET

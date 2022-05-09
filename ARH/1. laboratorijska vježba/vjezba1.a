@@ -1,0 +1,35 @@
+		ORG 0					; kreni od adrese 0
+	
+GLAVNI LOAD R0,(VEL)			; u registar R0 ucitaj dekadsku vrijednost 5
+			MOVE IZVOR, R1 		; u R1 stavi IZVOR
+			MOVE ODRED, R2		; u R2 stavi ODRED
+			
+PETLJA LOAD R3,(R1+4)			; u registar R3 ucitaj vrijednost R1 + 4
+			SHL R3,1,R3			; shift registra R3 ulijevo za 1 bit radi provjere predznaka, prvi bit ide u zastavicu c
+			JR_C NEGAT			; ako je manje od nula, skoci na NEGAT inace "propada" do POZIT
+			
+POZIT LOADH R3,(R1)				; spremi polurijec u R3 s adrese koja je u R1
+			JR SPREMI			
+			
+NEGAT LOADH R3,(R1)				; u registar R3 ucitaj polurijec sa R1 (nize bitove, vise puni nulama)
+			XOR R3,-1,R3		; 1k komplement
+			ADD R3,1,R3			; 2k komplement
+			
+SPREMI STOREH R3,(R2)			; iz R3 spremi u adresu koja je u R2
+			ADD R1,8,R1			; pomakni na iducu 64-bitnu rijec
+			ADD R2,2,R2			; pomakni se za 16 bitova na iducu rijec
+			SUB R0,1,R0			; brojac petlje
+			JR_NZ PETLJA
+			
+			MOVE 8000,R3		; ako je 0 stavi 8000 u R3
+			STOREH R3,(R2)		; pohrani u R2
+			
+			HALT				; zaustavi procesor
+			
+			ORG 500				; kreni od adrese 500
+			
+VEL    DW 	%D 5				; definiranje memorijske rijeci vrijednosti 5
+IZVOR  DW   1,80000000,2,0,4,80000000,25,0,49,80000000
+
+			ORG 1000			; kreni od adrese 1000
+ODRED DS	%D 12				; rezervira 12 mjesta 6x2 bajta - 5 podataka + 1 kojim se zakljuca

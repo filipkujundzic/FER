@@ -1,0 +1,20 @@
+		`ORG 0
+		MOVE  50 , R1
+		MOVE 70, R2
+				
+LOOP		 LOAD R0, (R1)
+		STORE R0, (R2)
+		CMP R0, 0
+		JR_Z DALJE
+		ADD R1, 4, R1
+		ADD R2, 4, R2
+		JR LOOP
+		
+DALJE	HALT
+		
+		`ORG 50
+		DW 1, 2, 3, 0
+		
+		`ORG 70
+		`DS %D 20
+		`END

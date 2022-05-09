@@ -1,0 +1,88 @@
+VJ1 	               	EQU 	FFFF1000				; bezuvjetna vanjska jedinica		
+
+VJ2	   		EQU	FFFF2000				; uvjetna vanjska jedinica
+BS2	   		EQU	FFFF2004
+
+VJ3	   		EQU 	FFFF3000				; prekidna VJ , generira maskirajuci prekid
+BS3	   		EQU	FFFF3004
+END3	   		EQU	FFFF3008
+STOP3  		EQU	FFFF300C
+
+			
+			
+			ORG 0
+			MOVE 10000,SP
+			JP GLAVNI
+			
+			ORG 8
+			DW 1000
+			
+			; glavni program
+GLAVNI		MOVE  %B 10000, SR			; dozvoli maskirajuci prekid
+			MOVE 1, R0					; dozvoli postavljanje zahtjeva za prekid
+			STORE R0, (STOP3)
+								
+PETLJA1		LOAD R0,(BS2)				; provjeri spremnost VJ2
+			AND R0, 1, R0				; ako nije spremna nazad , cekaj dok bude spremna
+			JR_Z PETLJA1
+									; kad je VJ2 spremna
+						
+			LOAD R0, (BROJ)				; saljemo podatak sa lokacije BROJ na VJ2
+			STORE R0,(VJ2)
+			STORE R0,(BS2)				; brisi spremnost VJ2
+			
+			LOAD R0, (BROJPOD)			; povecaj brojaè dosad poslanih podataka na VJ2 ( taj brojac saljemo na VJ3)
+			ADD R0, 1, R0
+			STORE R0, (BROJPOD)
+			
+			JP PETLJA1					; beskonaèna petlja	
+			
+
+			; potprogram za maskirajuci prekid
+			ORG 1000
+
+PPINT		PUSH R1					; spremanje konteksta
+			MOVE SR, R1
+			PUSH R1
+			PUSH R2
+			
+			STORE R1, (BS3)  			; dojava prihvata prekida
+			LOAD R2, (VJ1) 				; ucitaj podatak sa VJ2
+    			CMP R2,0
+			JR_SGE POZITIVAN			; ako je negativan, zabrana prekida i zaustavljanje procesora
+			
+			MOVE 0, R2
+			STORE R2, (STOP3)
+			HALT
+			
+POZITIVAN		PUSH R2					; spremi podatak na stog
+			CALL OBRADI				; pozovi potprogram za potenciranje
+			ADD SP, 4, SP				; ocisti stog
+			STORE R0, (BROJ)			; spremi obradjeni podatak na lokaciju broj
+			LOAD R0,(BROJPOD)			; spremi na VJ3 broj dosad poslanih podataka na VJ2
+			STORE R0,(VJ3)
+			
+			
+			STORE R0,(END3)				; dojavi da je prekid obradjen
+			
+			POP R2					; obnovi kontekst
+			POP R1
+			MOVE R1, SR
+			POP R1					
+			RETI
+			
+			; potprogram za obradjivanje broj
+		
+OBRADI		PUSH R1
+			MOVE SR, R1
+			PUSH R1
+			LOAD R1, (SP+0C)
+			MOVE 1, R0				; obrada broja shiftanjem
+			SHL R0, R1, R0
+			POP R1
+			MOVE R1, SR
+			POP R1
+			RET
+			
+BROJ 		DW 0
+BROJPOD	DW 0

@@ -1,0 +1,79 @@
+		ORG 0
+		B GLAVNI
+		
+		ORG 18
+PREKID	STMFD R13!,{R0,R1,R2,R3,R4,LR}
+		LDR R0, GPIO
+		LDR R1, RTC
+		STR R0, [R1,#8]
+		MOV R2,#0
+		STR R2,[R1,#0C]
+		MOV R2,#1<8
+		STR R2,[R1,#4]
+		
+		MOV R2,#0D
+		BL LCDWR
+		
+		MOV R2,#3E
+		BL LCDWR
+		BL LCDWR
+		BL LCDWR
+		
+		MOV R4,#1<10
+		LDR R3,INDEX
+		
+		LDRB R2,[R4,R3]
+		CMP R2,#0
+		BEQ VAN
+		
+		ADD R3,R3,#1
+		STR R3,INDEX
+		BL LCDWR
+		
+		MOV R2,#3C
+		BL LCDWR
+		BL LCDWR
+		BL LCDWR
+		
+		MOV R2,#0A
+		BL LCDWR
+		
+VAN		LDMFD R13!,{R0,R1,R2,R3,R4,LR}
+		SUBS PC,LR,#4
+		
+GLAVNI	MOV R13,#1<16	
+		
+		LDR R3,RTC		;inicijalizacija RTC-a
+		MOV R4,#1<8
+		STR R4,[R3,#4]
+		MOV R4,#1
+		STR R4,[R3,#10]
+									
+		MRS R3,CPSR
+		BIC R3,R3,#80
+		MSR CPSR_c,R3
+		
+PETLJA	B PETLJA
+		
+		
+LCDWR	STMFD R13!,{R0,R1}
+		LDR R1,GPIO
+		
+		AND R2,R2,#7F
+		STRB R2,[R1,#4]
+		
+		ORR R2,R2,#80
+		STRB R2,[R1,#4]
+		
+		AND R2,R2,#7F
+		STRB R2,[R1,#4]
+		
+		LDMFD R13!,{R0,R1}
+		MOV PC,LR
+		
+GPIO	DW 0FFFFFF00
+RTC		DW 0FFFFFE00		
+INDEX	DW 0				;pozicija unutar niza znakova
+		
+		ORG 400
+		DB 49,6E,74,65,72,6E,61,74,69,6F,6E,61,6C,69,73,61,74,96,6F,6E,0	

@@ -1,0 +1,52 @@
+		ORG 0
+		
+		MOV R13,#1<16
+		MOV	R1,#1<8 
+		MOV R2,#1<10
+		MOV R3,#80<24
+		
+GLAVNI	LDR R4,[R1],#4
+		CMP R4,R3
+		BEQ	KRAJ  
+		STMFD R13!,{R4}
+		BL KUB
+		ADD R13,R13,#4
+		MOV R4,R4,LSL #1
+		SUB	R0,R0,#1
+		STMFD R13!,{R0,R4}
+		BL DIV
+		ADD R13,R13,#8
+		STR R4,[R2],#4
+		B GLAVNI
+		
+KRAJ	SWI 123456		
+
+		
+KUB		STMFD R13!,{R1}
+		LDR R0,[R13,#4]
+		MOV R1,R0
+		MUL R0,R0,R0
+		MUL R0,R1,R0
+		LDMFD R13!,{R1}
+		MOV PC,LR
+		
+DIV		STMFD R13!,{R1,R2}
+		ADD R0,R13,#8
+		LDMFD R0,{R1,R2}
+		CMP R2,#0			;provjerava jel negativan
+		RSBLT R2,R2,#0
+		RSBLT R1,R1,#0
+		MOV R4,#0
+		
+PETLJA	SUBS R1,R1,R2
+		ADDPL R4,R4,#1
+		BEQ	VAN				;za slučaj kad je 0
+		BPL PETLJA
+VAN		LDMFD R13!,{R1,R2}
+		MOV PC,LR
+		
+		ORG 100
+		DW	0,3,6,-1,-6,80000000
+
+		ORG 400
+		DS	20

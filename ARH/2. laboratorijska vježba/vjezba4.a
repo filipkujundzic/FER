@@ -1,0 +1,96 @@
+			; SKLOP CT
+
+CTCR			EQU 		FFFF0000			; kontrolna rijec 
+CTLR			EQU		FFFF0004			; limit registar LR 
+CTBS			EQU  		FFFF0008			; bistabil stanja
+CTEND		EQU		FFFF000C			; obavijest o kraju posluzivanja
+			
+			; SKLOP DMA
+			
+DMA_SRC		EQU		FFFF1000			; adresa izvora
+DMA_DEST		EQU		FFFF1004			; adresa odredista
+DMA_SIZE		EQU		FFFF1008			; velicina bloka
+DMA_CR		EQU		FFFF100C			; konrolna rijec
+DMA_START	EQU		FFFF1010			; pokretanje prijenosa
+DMA_BS		EQU		FFFF1014			; bistabil stanja
+			
+			; BEZUVJETNA VANJSKA JEDINICA
+			
+BVJ			EQU 		FFFFFFFC
+
+			ORG 0
+			MOVE 10000,SP
+			JP GLAVNI
+			
+			ORG 0C
+			
+			; NMI prekidni potprogram
+PREKIDNI		PUSH R0					; spremanje konteksta
+			MOVE SR, R0
+			PUSH R0
+			PUSH R1
+			
+			STORE R0, (DMA_BS) 			; dojava prihvata prekida
+			LOAD R1, (ODREDISTE)			
+			
+			MOVE -1, R0				; terminiranje 10 og podatka
+			STORE R0, (R1+%D36)
+			ADD R1, %D 40, R1			; povecanje adrese odredista za 40 memorijskih lokacija
+			STORE R1, (ODREDISTE)
+			
+			
+			POP R1 					; obnova konteksta
+			POP R0
+			MOVE SR, R0
+			POP R0
+			
+			RETN
+		
+
+
+
+			; inicijalizacija sklopa CT
+GLAVNI		MOVE %D 1000, R0 		 	; 100 us*10mhz =1000 impulsa u limit registar
+			STORE R0, (CTLR)
+			
+			MOVE %B 01,  R0         		 ; upravljacka rijec (ne postavlja prekid + brojilo broji)
+			STORE R0, (CTCR)
+			
+			; ispitivanje spremnosti sklopa CT
+			
+PETLJA		LOAD R0, (CTBS)	
+			AND R0, 1, R0
+			JP_Z PETLJA
+			
+			
+			
+			; ako je spreman inicijalizirati DMA sklop
+			
+INIT_DMA		MOVE BVJ, R0				; izvor je bezuvjetna vanjska jedinica pa tu adresu stavljamo kao izvorisnu
+			STORE R0, (DMA_SRC)
+			
+			LOAD R0, (ODREDISTE)			; odrediste ( ono se povecava u prekidnom potprogramu )
+			STORE R0, (DMA_DEST)
+			
+			MOVE %D 9, R0				; broj podataka u bloku
+			STORE R0, (DMA_SIZE)
+			
+			MOVE %B 0111, R0			; upis kontrolne rijeci
+			STORE R0, (DMA_CR)
+			
+			STORE R0, (DMA_START)		; pokreni prijenos
+			
+			LOAD R0, (BLOKOVI)			; kad obradis 5 blokova zaustavi procesor
+			ADD R0, 1, R0
+			STORE R0, (BLOKOVI)
+			CMP R0, 5
+			
+			JP_NE PETLJA
+			
+			STORE R0, (CTEND)
+		
+			HALT
+			
+
+BLOKOVI 		DW 0
+ODREDISTE		DW 1000
