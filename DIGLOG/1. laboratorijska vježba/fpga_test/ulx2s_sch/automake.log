@@ -1,2 +1,0 @@
-
-sch2vlog -FPGA -i C:/fpga_test/sch_test.sch -o C:/fpga_test/ulx2s_sch/sch_test.v
