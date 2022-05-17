@@ -20,3 +20,7 @@ Preddiplomski i diplomski studij - smjer Računarska znanost (FER2 program)
 # 4. semestar
 
 - [**Uvod u teoriju računarstva**](https://github.com/filipkujundzic/FER/tree/main/UTR)
+
+# 5. semestar
+
+- [**Prevođenje programskih jezika**](https://github.com/filipkujundzic/FER/tree/main/PPJ)
