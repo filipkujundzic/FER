@@ -46,3 +46,9 @@
 
 - [**Diplomski seminar - Prirodom inspirirani optimizacijski algoritmi**](https://github.com/filipkujundzic/FER/tree/main/DSEM)
 - [**Napredni operacijski sustavi**](https://github.com/filipkujundzic/FER/tree/main/NOS)
+
+## 3. semestar
+
+- [**Diplomski projekt - Primjena algoritma roja čestica na kombinatorne probleme**](https://github.com/filipkujundzic/FER/tree/main/DIPPROJ)
+- [**Multimedijske arhitekture i sustavi**](https://github.com/filipkujundzic/FER/tree/main/MAS)
+- [**Računalna grafika**](https://github.com/filipkujundzic/FER/tree/main/RG)
