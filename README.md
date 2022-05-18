@@ -34,3 +34,10 @@
 - [**Završni rad - Primjena heurističkih algoritama u kombinatorici**](https://github.com/filipkujundzic/FER/tree/main/ZRAD)
 
 ## Diplomski studij
+
+## 1. semestar
+
+- [**Analiza i projektiranje računalom**](https://github.com/filipkujundzic/FER/tree/main/APR)
+- [**Napredni algoritmi i strukture podataka**](https://github.com/filipkujundzic/FER/tree/main/NASP)
+- [**Računarstvo zasnovano na uslugama**](https://github.com/filipkujundzic/FER/tree/main/RZNU)
+- [**Strojno učenje**](https://github.com/filipkujundzic/FER/tree/main/SU)
