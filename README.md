@@ -1,6 +1,7 @@
 # Laboratorijske vježbe i projekti  - FER
 
-Preddiplomski i diplomski studij - smjer Računarska znanost (FER2 program)
+Smjer Računarska znanost (FER2 program)
+**Preddiplomski studij**
 
 # 1. semestar
 
@@ -31,3 +32,5 @@ Preddiplomski i diplomski studij - smjer Računarska znanost (FER2 program)
 - [**Skriptni jezici**](https://github.com/filipkujundzic/FER/tree/main/SKRJEZ)
 - [**Umjetna inteligencija**](https://github.com/filipkujundzic/FER/tree/main/UI)
 - [**Završni rad - Primjena heurističkih algoritama u kombinatorici**](https://github.com/filipkujundzic/FER/tree/main/ZRAD)
+
+**Diplomski studij**
