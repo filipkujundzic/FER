@@ -53,7 +53,7 @@
 - [**Multimedijske arhitekture i sustavi**](https://github.com/filipkujundzic/FER/tree/main/MAS)
 - [**Računalna grafika**](https://github.com/filipkujundzic/FER/tree/main/RG)
 
-## 3. semestar
+## 4. semestar
 
 - [**Diplomski rad - Primjena prirodom inspiriranih optimizacijskih algoritama na kombinatorne probleme**](https://github.com/filipkujundzic/FER/tree/main/DIPLRAD)
 
