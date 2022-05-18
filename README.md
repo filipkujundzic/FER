@@ -33,4 +33,4 @@
 - [**Umjetna inteligencija**](https://github.com/filipkujundzic/FER/tree/main/UI)
 - [**Završni rad - Primjena heurističkih algoritama u kombinatorici**](https://github.com/filipkujundzic/FER/tree/main/ZRAD)
 
-**Diplomski studij**
+## Diplomski studij
