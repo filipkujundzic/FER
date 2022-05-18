@@ -1,0 +1,11 @@
+curl -i http://localhost:5000/photos/api/
+curl -i http://localhost:5000/photos/api/users
+curl -i http://localhost:5000/photos/api/users/2
+curl -i -H "Content-Type: application/json" -X POST -d '{"name":"Luka", "password":"rm"}' http://localhost:5000/photos/api/users
+curl -i -H "Content-Type: application/json" -X PUT -d '{"password":"strong"}' http://localhost:5000/photos/api/users/1
+curl -i http://localhost:5000/photos/api/pics
+curl -i http://localhost:5000/photos/api/pics/1
+curl -i -H "Content-Type: application/json" -X POST -d '{"title":"Football", "description":"slika"}' http://localhost:5000/photos/api/pics
+curl -i -H "Content-Type: application/json" -X PUT -d '{"title":"Soccer"}' http://localhost:5000/photos/api/pics/1
+curl -i http://localhost:5000/photos/api/users/2/pics
+curl -u Ivan:python1 -i http://localhost:5000/photos/api/users/2/pics
