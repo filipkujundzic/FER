@@ -41,3 +41,8 @@
 - [**Napredni algoritmi i strukture podataka**](https://github.com/filipkujundzic/FER/tree/main/NASP)
 - [**Računarstvo zasnovano na uslugama**](https://github.com/filipkujundzic/FER/tree/main/RZNU)
 - [**Strojno učenje**](https://github.com/filipkujundzic/FER/tree/main/SU)
+
+## 2. semestar
+
+- [**Diplomski seminar - Prirodom inspirirani optimizacijski algoritmi**](https://github.com/filipkujundzic/FER/tree/main/DSEM)
+- [**Napredni operacijski sustavi**](https://github.com/filipkujundzic/FER/tree/main/NOS)
