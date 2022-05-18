@@ -14,8 +14,8 @@ Preddiplomski i diplomski studij - smjer Računarska znanost (FER2 program)
 
 # 3. semestar
 
-- [**Operacijski sustavi**](https://github.com/filipkujundzic/FER/tree/main/OS)
 - [**Objektno orijentirano programiranje**](https://github.com/filipkujundzic/FER/tree/main/OS)
+- [**Operacijski sustavi**](https://github.com/filipkujundzic/FER/tree/main/OS)
 
 # 4. semestar
 
