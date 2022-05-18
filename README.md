@@ -24,3 +24,10 @@ Preddiplomski i diplomski studij - smjer Računarska znanost (FER2 program)
 # 5. semestar
 
 - [**Prevođenje programskih jezika**](https://github.com/filipkujundzic/FER/tree/main/PPJ)
+
+# 6. semestar
+
+- [**Interaktivna računalna grafika**](https://github.com/filipkujundzic/FER/tree/main/IRG)
+- [**Skriptni jezici**](https://github.com/filipkujundzic/FER/tree/main/SKRJEZ)
+- [**Umjetna inteligencija**](https://github.com/filipkujundzic/FER/tree/main/UI)
+- [**Završni rad - Primjena heurističkih algoritama u kombinatorici**](https://github.com/filipkujundzic/FER/tree/main/ZRAD)
