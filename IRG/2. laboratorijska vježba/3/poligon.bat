@@ -1,0 +1,1 @@
+poligon.py ulaz.txt
