@@ -1,0 +1,16 @@
+-r
+D:\Education\FER\[9] [MAS] Multimedijske arhitekture i sustavi\Labosi\m-a-s\HW03\DZ34\DZ3\My Amplifier Results - DZ3\r003hs
+--stack-stitching
+--allow-multiple-runs
+--data-limit-mb=500
+--disk-space-limit=0
+--mrte-type=java,dotnet,python
+--itt-config=frame
+--stackwalk=offline
+--mrte-mode=auto
+--type=cpu:counters:nostack
+--type=cpu:stack
+--interval=1
+--
+D:\Education\FER\[9] [MAS] Multimedijske arhitekture i sustavi\Labosi\m-a-s\HW03\DZ34\Debug\DZ3.exe
+lenna.ppm

@@ -1,0 +1,2 @@
+﻿dz4.obj : error LNK2019: unresolved external symbol ippiDCT8x8Fwd_32f_C1I referenced in function discrete_cosine_transform
+C:\Users\FILIP\Desktop\m-a-s-master\m-a-s-master\HW03\DZ34\x64\Debug\DZ4.exe : fatal error LNK1120: 1 unresolved externals
