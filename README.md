@@ -52,3 +52,8 @@
 - [**Diplomski projekt - Primjena algoritma roja čestica na kombinatorne probleme**](https://github.com/filipkujundzic/FER/tree/main/DIPPROJ)
 - [**Multimedijske arhitekture i sustavi**](https://github.com/filipkujundzic/FER/tree/main/MAS)
 - [**Računalna grafika**](https://github.com/filipkujundzic/FER/tree/main/RG)
+
+## 3. semestar
+
+- [**Diplomski rad - Primjena prirodom inspiriranih optimizacijskih algoritama na kombinatorne probleme**](https://github.com/filipkujundzic/FER/tree/main/DIPLRAD)
+
