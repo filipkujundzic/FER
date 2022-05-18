@@ -1,1 +1,0 @@
-python objekt.py kocka.obj
