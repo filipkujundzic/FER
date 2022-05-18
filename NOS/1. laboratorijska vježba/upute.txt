@@ -1,0 +1,182 @@
+*Napredni operacijski sustavi
+1. laboratorijska vježba
+2019/2020
+
+Zadatak a.
+- Pokretanje: 
+cc main.c -o main; cc vrtuljak.c -o vrtuljak; cc posjetitelj.c -o posjetitelj; ./main
+
+- Ispis:
+
+[posjetitelj] Ja sam posjetitelj 11037
+[posjetitelj] Ja sam posjetitelj 11038
+[posjetitelj] Ja sam posjetitelj 11036
+[posjetitelj] Ja sam posjetitelj 11034
+[posjetitelj] Ja sam posjetitelj 11035
+[posjetitelj] Ja sam posjetitelj 11033
+[posjetitelj] Ja sam posjetitelj 11032
+[posjetitelj] Ja sam posjetitelj 11031
+Posjetitelj 11035 je sjeo.
+Posjetitelj 11033 je sjeo.
+Posjetitelj 11032 je sjeo.
+Posjetitelj 11038 je sjeo.
+
+Vrtuljak se pokreće
+
+Završila vožnja
+Posjetitelj 11035 je ustao.
+Posjetitelj 11033 je ustao.
+Posjetitelj 11032 je ustao.
+Posjetitelj 11038 je ustao.
+Posjetitelj 11037 je sjeo.
+Posjetitelj 11036 je sjeo.
+Posjetitelj 11034 je sjeo.
+Posjetitelj 11031 je sjeo.
+
+Vrtuljak se pokreće
+
+Završila vožnja
+Posjetitelj 11031 je ustao.
+Posjetitelj 11034 je ustao.
+Posjetitelj 11036 je ustao.
+Posjetitelj 11037 je ustao.
+Posjetitelj 11033 je sjeo.
+Posjetitelj 11035 je sjeo.
+Posjetitelj 11032 je sjeo.
+Posjetitelj 11038 je sjeo.
+
+Vrtuljak se pokreće
+
+Završila vožnja
+Posjetitelj 11038 je ustao.
+Posjetitelj 11032 je ustao.
+Posjetitelj 11035 je ustao.
+Posjetitelj 11033 je ustao.
+Posjetitelj 11034 je sjeo.
+Posjetitelj 11037 je sjeo.
+Posjetitelj 11036 je sjeo.
+Posjetitelj 11031 je sjeo.
+
+Vrtuljak se pokreće
+
+Završila vožnja
+Posjetitelj 11031 je ustao.
+Posjetitelj 11036 je ustao.
+Posjetitelj 11037 je ustao.
+Posjetitelj 11034 je ustao.
+Posjetitelj 11035 je sjeo.
+Posjetitelj 11032 je sjeo.
+Posjetitelj 11033 je sjeo.
+Posjetitelj 11038 je sjeo.
+
+Vrtuljak se pokreće
+
+Završila vožnja
+Posjetitelj 11038 je ustao.
+Posjetitelj 11033 je ustao.
+Posjetitelj 11032 je ustao.
+Posjetitelj 11035 je ustao.
+Posjetitelj 11035 je gotov!
+Posjetitelj 11032 je gotov!
+Posjetitelj 11033 je gotov!
+Posjetitelj 11038 je gotov!
+Posjetitelj 11037 je sjeo.
+Posjetitelj 11031 je sjeo.
+Posjetitelj 11034 je sjeo.
+Posjetitelj 11036 je sjeo.
+
+Vrtuljak se pokreće
+
+Završila vožnja
+Posjetitelj 11036 je ustao.
+Posjetitelj 11034 je ustao.
+Posjetitelj 11031 je ustao.
+Posjetitelj 11037 je ustao.
+Posjetitelj 11037 je gotov!
+Posjetitelj 11031 je gotov!
+Posjetitelj 11034 je gotov!
+Posjetitelj 11036 je gotov!
+
+
+Zadatak b.
+- Pokretanje: 
+cc filozofi.c -o filozofi
+./filozofi
+
+- Ispis:
+
+Unesite broj filozofa: 4
+Dolazak filozofa 0 na konferenciju.
+Dolazak filozofa 1 na konferenciju.
+Dolazak filozofa 2 na konferenciju.
+Dolazak filozofa 3 na konferenciju.
+
+F0: Sudjelujem na konferenciji
+F0: šaljem F1   Zahtjev(P=0,T= 1)
+F1: Sudjelujem na konferenciji
+F0: šaljem F2   Zahtjev(P=0,T= 1)
+F2: Sudjelujem na konferenciji
+F3: Sudjelujem na konferenciji
+F3: šaljem F0   Zahtjev(P=3,T= 2)
+F1: šaljem F0   Zahtjev(P=1,T= 8)
+F0: šaljem F3   Zahtjev(P=0,T= 1)
+F2: šaljem F0   Zahtjev(P=2,T= 2)
+F3: šaljem F1   Zahtjev(P=3,T= 2)
+F2: šaljem F1   Zahtjev(P=2,T= 2)
+F1: šaljem F2   Zahtjev(P=1,T= 8)
+F3: šaljem F2   Zahtjev(P=3,T= 2)
+F2: šaljem F3   Zahtjev(P=2,T= 2)
+F1: šaljem F3   Zahtjev(P=1,T= 8)
+F0: primam   Zahtjev(P=1,T= 8)
+F0: primam   Zahtjev(P=2,T= 2)
+F3: primam   Zahtjev(P=0,T= 1)
+F3: šaljem F0   Odgovor(P= 3,T= 1)
+F2: primam   Zahtjev(P=0,T= 1)
+F2: šaljem F0   Odgovor(P= 2,T= 1)
+F1: primam   Zahtjev(P=0,T= 1)
+F1: šaljem F0   Odgovor(P= 1,T= 1)
+F0: primam   Zahtjev(P=3,T= 2)
+F3: primam   Zahtjev(P=1,T= 8)
+F1: primam   Zahtjev(P=2,T= 2)
+F1: šaljem F2   Odgovor(P= 1,T= 2)
+F2: primam   Zahtjev(P=1,T= 8)
+F3: primam   Zahtjev(P=2,T= 2)
+F3: šaljem F2   Odgovor(P= 3,T= 2)
+F2: primam   Zahtjev(P=3,T= 2)
+F1: primam   Zahtjev(P=3,T= 2)
+F1: šaljem F3   Odgovor(P= 1,T= 2)
+F0: primam   Odgovor(P= 1,T= 1)
+F0: primam   Odgovor(P= 2,T= 1)
+F0: primam   Odgovor(P= 3,T= 1)
+
+Filozof 0 je za stolom i jede
+
+F0: gotov KO šaljem F1   Odgovor(P= 0,T= 8)
+F0: gotov KO šaljem F2   Odgovor(P= 0,T= 2)
+F0: gotov KO šaljem F3   Odgovor(P= 0,T= 2)
+F0: Sudjelujem na konferenciji
+F2: primam   Odgovor(P= 0,T= 2)
+F1: primam   Odgovor(P= 0,T= 8)
+F3: primam   Odgovor(P= 0,T= 2)
+F2: primam   Odgovor(P= 1,T= 2)
+F3: primam   Odgovor(P= 1,T= 2)
+F2: primam   Odgovor(P= 3,T= 2)
+
+Filozof 2 je za stolom i jede
+
+F2: gotov KO šaljem F1   Odgovor(P= 2,T= 8)
+F2: gotov KO šaljem F3   Odgovor(P= 2,T= 2)
+F2: Sudjelujem na konferenciji
+F1: primam   Odgovor(P= 2,T= 8)
+F3: primam   Odgovor(P= 2,T= 2)
+
+Filozof 3 je za stolom i jede
+
+F3: gotov KO šaljem F1   Odgovor(P= 3,T= 8)
+F1: primam   Odgovor(P= 3,T= 8)
+
+Filozof 1 je za stolom i jede
+
+F3: Sudjelujem na konferenciji
+F1: Sudjelujem na konferenciji
+Kraj programa

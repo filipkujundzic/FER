@@ -1,0 +1,9 @@
+---BEGIN OS2 CRYPTO DATA---
+Description:
+    Secret key
+Method:
+    AES
+Secret key:
+    98628b2224ea64838371390f810be03f
+---END OS2 CRYPTO DATA--- 
+	

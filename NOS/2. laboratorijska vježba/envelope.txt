@@ -1,0 +1,20 @@
+---BEGIN OS2 CRYPTO DATA---
+Description:
+    Envelope
+File name:
+    input_dat.txt
+Method:
+    AES
+    RSA
+Key length:
+    10
+    0400
+Envelope data:
+    IvwX2jk0Ef7WaeeTaUYuw8KtcGZXVyFteFbTm592JYE=
+Envelope crypt key:
+    58ad738a7a1b61460adfeacaeae085c55590a57fce6c082180b128f74b2d
+    47f52a2034e929531af8646047f82339041c9a4fa705dd26aeb3f6a92c8c
+    7e7ff555637e839375e52914f68c394eccad143803252d84a816155be1d7
+    d95275af07bd0c81c05ef24407cfb1f54c1d145e27c43985c9e2fbe66845
+    fa5edc87219cb3c8
+---END OS2 CRYPTO DATA---
