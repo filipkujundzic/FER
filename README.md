@@ -1,4 +1,5 @@
-# Laboratorijske vježbe i projekti  - FER - Smjer Računarska znanost (FER2 program)
+# Laboratorijske vježbe i projekti  - FER
+# Smjer Računarska znanost (FER2 program)
 
 **Preddiplomski studij**
 
